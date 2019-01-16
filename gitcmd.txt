@@ -18,6 +18,11 @@ git logÃüÁîÏÔÊ¾´Ó×î½üµ½×îÔ¶µÄÌá½»ÈÕÖ¾
 
 7.git reset --hard HEAD^
 ÔÚGitÖÐ£¬ÓÃHEAD±íÊ¾µ±Ç°°æ±¾£¬ÉÏÒ»¸ö°æ±¾¾ÍÊÇHEAD^£¬ÉÏÉÏÒ»¸ö°æ±¾¾ÍÊÇHEAD^^£¬µ±È»ÍùÉÏ100¸ö°æ±¾Ð´³ÉHEAD~100,´©ËóÇ°£¬ÓÃgit log¿ÉÒÔ²é¿´Ìá½»ÀúÊ·£¬ÒÔ±ãÈ·¶¨Òª»ØÍËµ½ÄÄ¸ö°æ±¾,HEADÖ¸ÏòµÄ°æ±¾¾ÍÊÇµ±Ç°°æ±¾£¬Òò´Ë£¬GitÔÊÐíÎÒÃÇÔÚ°æ±¾µÄÀúÊ·Ö®¼ä´©Ëó£¬Ê¹ÓÃÃüÁîgit reset --hard commit_id
+git reset --mixed£º´ËÎªÄ¬ÈÏ·½Ê½£¬²»´øÈÎºÎ²ÎÊýµÄgit reset£¬¼´Ê±ÕâÖÖ·½Ê½£¬Ëü»ØÍËµ½Ä³¸ö°æ±¾£¬Ö»±£ÁôÔ´Âë£¬»ØÍËcommitºÍindexÐÅÏ¢
+git reset --soft£º»ØÍËµ½Ä³¸ö°æ±¾£¬Ö»»ØÍËÁËcommitµÄÐÅÏ¢£¬²»»á»Ö¸´µ½index fileÒ»¼¶¡£Èç¹û»¹ÒªÌá½»£¬Ö±½Ócommit¼´¿É
+git reset  --hard£º³¹µ×»ØÍËµ½Ä³¸ö°æ±¾£¬±¾µØµÄÔ´ÂëÒ²»á±äÎªÉÏÒ»¸ö°æ±¾µÄÄÚÈÝ£¬´ËÃüÁî É÷ÓÃ£¡
+ git reset --hard 1094a
+°æ±¾ºÅÃ»±ØÒªÐ´È«£¬Ç°¼¸Î»¾Í¿ÉÒÔÁË£¬Git»á×Ô¶¯È¥ÕÒ¡£µ±È»Ò²²»ÄÜÖ»Ð´Ç°Ò»Á½Î»£¬ÒòÎªGit¿ÉÄÜ»áÕÒµ½¶à¸ö°æ±¾ºÅ£¬¾ÍÎÞ·¨È·¶¨ÊÇÄÄÒ»¸öÁË¡£
 
 8.git reflog
 GitÌá¹©ÁËÒ»¸öÃüÁîgit reflogÓÃÀ´¼ÇÂ¼ÄãµÄÃ¿Ò»´ÎÃüÁî.ÒªÖØ·µÎ´À´£¬ÓÃgit reflog²é¿´ÃüÁîÀúÊ·£¬ÒÔ±ãÈ·¶¨Òª»Øµ½Î´À´µÄÄÄ¸ö°æ±¾
@@ -149,3 +154,5 @@ git pullÊ§°ÜÁË£¬Ô­ÒòÊÇÃ»ÓÐÖ¸¶¨±¾µØdev·ÖÖ§ÓëÔ¶³Ìorigin/dev·ÖÖ§µÄÁ´½Ó£¬¸ù¾ÝÌáÊ¾£¬É
     rebase²Ù×÷¿ÉÒÔ°Ñ±¾µØÎ´pushµÄ·Ö²æÌá½»ÀúÊ·ÕûÀí³ÉÖ±Ïß£»
     rebaseµÄÄ¿µÄÊÇÊ¹µÃÎÒÃÇÔÚ²é¿´ÀúÊ·Ìá½»µÄ±ä»¯Ê±¸üÈÝÒ×£¬ÒòÎª·Ö²æµÄÌá½»ÐèÒªÈý·½¶Ô±È¡£
 
+31.git fsck --lost-found
+ÕÒ»Øgit add¹ýµ«ÊÇÒÑ¾­²»´æÔÚÎÄ¼þÖÐµÄÄÚÈÝ£¨²»ÖªµÀÕâÃ´·­Òë¶Ô²»¶Ô£¬ÎÒÊÇÕâÃ´Àí½âµÄ
