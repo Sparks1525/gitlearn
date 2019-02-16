@@ -1,158 +1,173 @@
 1.git init
-ͨ��git init��������Ŀ¼���Git���Թ����Ĳֿ�
+通过git init命令把这个目录变成Git可以管理的仓库
 
 2.git add <file>
-ʹ������git add <file>��ע�⣬�ɷ������ʹ�ã����Ӷ���ļ���stage�ݴ���
+使用命令git add <file>，注意，可反复多次使用，添加多个文件到stage暂存区
 
 3.git commit -m <message>
-������git commit����Git�����ļ��ύ���ֿ�
+用命令git commit告诉Git，把文件提交到仓库
 
 4.git status
-Ҫ��ʱ���չ�������״̬��ʹ��git status����
+要随时掌握工作区的状态，使用git status命令
 
 5.git diff
-���git status���������ļ����޸Ĺ�����git diff���Բ鿴�޸�����
+如果git status告诉你有文件被修改过，用git diff可以查看修改内容
 
 6.git log
-git log������ʾ���������Զ���ύ��־
+git log命令显示从最近到最远的提交日志
 
 7.git reset --hard HEAD^
-��Git�У���HEAD��ʾ��ǰ�汾����һ���汾����HEAD^������һ���汾����HEAD^^����Ȼ����100���汾д��HEAD~100,����ǰ����git log���Բ鿴�ύ��ʷ���Ա�ȷ��Ҫ���˵��ĸ��汾,HEADָ��İ汾���ǵ�ǰ�汾����ˣ�Git���������ڰ汾����ʷ֮�䴩��ʹ������git reset --hard commit_id
-git reset --mixed����ΪĬ�Ϸ�ʽ�������κβ�����git reset����ʱ���ַ�ʽ�������˵�ĳ���汾��ֻ����Դ�룬����commit��index��Ϣ
-git reset --soft�����˵�ĳ���汾��ֻ������commit����Ϣ������ָ���index fileһ���������Ҫ�ύ��ֱ��commit����
-git reset  --hard�����׻��˵�ĳ���汾�����ص�Դ��Ҳ���Ϊ��һ���汾�����ݣ������� ���ã�
+在Git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写成HEAD~100,穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本,HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id
+git reset --mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+git reset --soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+git reset  --hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容，此命令 慎用！
  git reset --hard 1094a
-�汾��û��Ҫдȫ��ǰ��λ�Ϳ����ˣ�Git���Զ�ȥ�ҡ���ȻҲ����ֻдǰһ��λ����ΪGit���ܻ��ҵ�����汾�ţ����޷�ȷ������һ���ˡ�
+版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。
 
 8.git reflog
-Git�ṩ��һ������git reflog������¼���ÿһ������.Ҫ�ط�δ������git reflog�鿴������ʷ���Ա�ȷ��Ҫ�ص�δ�����ĸ��汾
+Git提供了一个命令git reflog用来记录你的每一次命令.要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本
 
 9.
-�������������ڵ������ܿ�����Ŀ¼�������ҵ�learngit�ļ��о���һ����������
-��������һ������Ŀ¼.git��������㹤����������Git�İ汾�⡣
-Git�İ汾������˺ܶණ������������Ҫ�ľ��ǳ�Ϊstage�����߽�index�����ݴ���������GitΪ�����Զ������ĵ�һ����֧master���Լ�ָ��master��һ��ָ���HEAD��
-��git add���ļ����ӽ�ȥ��ʵ���Ͼ��ǰ��ļ��޸����ӵ��ݴ�����
-��git commit�ύ���ģ�ʵ���Ͼ��ǰ��ݴ��������������ύ����ǰ��֧��
-���Ǵ���Git�汾��ʱ��Git�Զ�Ϊ���Ǵ�����Ψһһ��master��֧�����ԣ����ڣ�git commit������master��֧���ύ���ġ�
+工作区就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区：
+工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
+用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。
 
 10.git checkout -- file
-git checkout -- file���Զ������������޸ģ�
-��������˹�����ĳ���ļ������ݣ���ֱ�Ӷ������������޸�ʱ��������git checkout -- file
+git checkout -- file可以丢弃工作区的修改：
+当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file
 
 11.git reset HEAD <file>
-������git reset HEAD <file>���԰��ݴ������޸ĳ�������unstage�������·Żع�������
-���㲻�������˹�����ĳ���ļ������ݣ������ӵ����ݴ���ʱ���붪���޸ģ�����������һ��������git reset HEAD <file>���ͻص��˳���1���ڶ���������1������
+用命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：
+当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
 
 12.git rm
-����git rm����ɾ��һ���ļ������һ���ļ��Ѿ����ύ���汾�⣬��ô����Զ���õ�����ɾ������ҪС�ģ���ֻ�ָܻ��ļ������°汾����ᶪʧ���һ���ύ�����޸ĵ����ݡ�
+命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
 13.git remote add origin git@server-name:path/repo-name.git
-Ҫ����һ��Զ�̿⣬ʹ������git remote add origin git@server-name:path/repo-name.git��
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
 
 14.git push -u origin master
-������ʹ������git push -u origin master��һ������master��֧���������ݣ�
-�˺�ÿ�α����ύ��ֻҪ�б�Ҫ���Ϳ���ʹ������git push origin master���������޸ģ�
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
 15.git clone
 git clone git@github.com:michaelliao/gitskills.git
-Ҫ��¡һ���ֿ⣬���ȱ���֪���ֿ�ĵ�ַ��Ȼ��ʹ��git clone�����¡��
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
 
 16.git checkout -b dev
-���Ǵ���dev��֧��Ȼ���л���dev��֧
-git checkout�������-b������ʾ�������л����൱�������������
+我们创建dev分支，然后切换到dev分支
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
 git branch dev
 git checkout dev
-dev��֧�Ĺ�����ɣ����ǾͿ����л���master��֧��git checkout master
+dev分支的工作完成，我们就可以切换回master分支：git checkout master
 
 17.git branch
-��git branch����鿴��ǰ��֧
+用git branch命令查看当前分支
 
 18.git merge dev
-��dev��֧�Ĺ����ɹ��ϲ���master��֧�ϣ�
+把dev分支的工作成果合并到master分支上：
 
 19.git branch -d dev
-�ϲ���ɺ󣬾Ϳ��Է��ĵ�ɾ��dev��֧�ˣ�
+合并完成后，就可以放心地删除dev分支了：
 
 20.
-Git��������ʹ�÷�֧��
-�鿴��֧��git branch
-������֧��git branch <name>
-�л���֧��git checkout <name>
-����+�л���֧��git checkout -b <name>
-�ϲ�ĳ��֧����ǰ��֧��git merge <name>
-ɾ����֧��git branch -d <name>
+Git鼓励大量使用分支：
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建+切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
 
 21.git log --graph --pretty=oneline --abbrev-commit
-��git log --graph������Կ�����֧�ϲ�ͼ��
-��Git�޷��Զ��ϲ���֧ʱ���ͱ������Ƚ����ͻ�������ͻ�����ύ���ϲ���ɡ�
-�����ͻ���ǰ�Git�ϲ�ʧ�ܵ��ļ��ֶ��༭Ϊ����ϣ�������ݣ����ύ��
-�ô�������git logҲ���Կ�����֧�ĺϲ������
+用git log --graph命令可以看到分支合并图。
+当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
+解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
+用带参数的git log也可以看到分支的合并情况：
 
 22.git merge --no-ff -m "merge with no-ff" dev
-�ϲ���֧ʱ��������ܣ�Git����Fast forwardģʽ��������ģʽ�£�ɾ����֧�󣬻ᶪ����֧��Ϣ��
-���Ҫǿ�ƽ���Fast forwardģʽ��Git�ͻ���mergeʱ����һ���µ�commit���������ӷ�֧��ʷ�ϾͿ��Կ�����֧��Ϣ��
-׼���ϲ�dev��֧����ע��--no-ff��������ʾ����Fast forward��
-��Ϊ���κϲ�Ҫ����һ���µ�commit�����Լ���-m��������commit����д��ȥ��
-�ϲ���֧ʱ������--no-ff�����Ϳ�������ͨģʽ�ϲ����ϲ������ʷ�з�֧���ܿ��������������ϲ�����fast forward�ϲ��Ϳ����������������ϲ���
+合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。
+如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
+准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward：
+因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
 
 23.
 git stash
 git stash list
 git stash apply
 git stash pop
-Git�ṩ��һ��stash���ܣ����԰ѵ�ǰ�����ֳ������ء����������Ժ�ָ��ֳ������������
-�������Ǹɾ��ģ��ղŵĹ����ֳ��浽��ȥ�ˣ���git stash list�������
-�����ֳ����ڣ�Git��stash���ݴ���ĳ���ط��ˣ�������Ҫ�ָ�һ�£��������취��
-һ����git stash apply�ָ������ǻָ���stash���ݲ���ɾ��������Ҫ��git stash drop��ɾ����
-��һ�ַ�ʽ����git stash pop���ָ���ͬʱ��stash����Ҳɾ�ˣ�
-����Զ��stash���ָ���ʱ������git stash list�鿴��Ȼ��ָ�ָ����stash�������
+Git提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：
+工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：
+一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
 git stash apply stash@{0}
 
 24.git branch -D <name>
-����һ����feature������½�һ����֧��
-���Ҫ����һ��û�б��ϲ����ķ�֧������ͨ��git branch -D <name>ǿ��ɾ����
+开发一个新feature，最好新建一个分支；
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
 
 25.
 git remote
 git remote -v
-Ҫ�鿴Զ�̿����Ϣ����git remote��
-���ߣ���git remote -v��ʾ����ϸ����Ϣ��
+要查看远程库的信息，用git remote：
+或者，用git remote -v显示更详细的信息：
 
 26.
 git push origin master
 git push origin dev
-���ͷ�֧�����ǰѸ÷�֧�ϵ����б����ύ���͵�Զ�̿⡣����ʱ��Ҫָ�����ط�֧��������Git�ͻ�Ѹ÷�֧���͵�Զ�̿��Ӧ��Զ�̷�֧�ϣ�
-���Ҫ����������֧������dev���͸ĳɣ�git push origin dev
-���ǣ�������һ��Ҫ�ѱ��ط�֧��Զ�����ͣ���ô����Щ��֧��Ҫ���ͣ���Щ����Ҫ�أ�
-    master��֧������֧�����Ҫʱ����Զ��ͬ����
-    dev��֧�ǿ�����֧���Ŷ����г�Ա����Ҫ�����湤��������Ҳ��Ҫ��Զ��ͬ����
-    bug��ֻ֧�����ڱ����޸�bug����û��Ҫ�Ƶ�Զ���ˣ������ϰ�Ҫ������ÿ�ܵ����޸��˼���bug��
-    feature��֧�Ƿ��Ƶ�Զ�̣�ȡ�������Ƿ�����С�����������濪����
-��֮��������Git�У���֧��ȫ�����ڱ����Լ������棬�Ƿ����ͣ���������������
+推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
+如果要推送其他分支，比如dev，就改成：git push origin dev
+但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？
+    master分支是主分支，因此要时刻与远程同步；
+    dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+    bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
+    feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！
 
 
 27.
 git checkout -b dev origin/dev
 git push origin dev
-�����С����Զ�̿�cloneʱ��Ĭ������£����С���ֻ�ܿ������ص�master��֧��
-���ڣ����С���Ҫ��dev��֧�Ͽ������ͱ��봴��Զ��origin��dev��֧�����أ���������������������dev��֧��git checkout -b dev origin/dev
-���ڣ����Ϳ�����dev�ϼ����޸ģ�Ȼ��ʱ��ʱ�ذ�dev��֧push��Զ�̣�git push origin dev
+当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的master分支。
+现在，你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：git checkout -b dev origin/dev
+现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程：git push origin dev
 
 28.git branch --set-upstream-to=origin/dev dev
-git pullʧ���ˣ�ԭ����û��ָ������dev��֧��Զ��origin/dev��֧�����ӣ�������ʾ������dev��origin/dev�����ӣ���pull
-���git pull��ʾno tracking information����˵�����ط�֧��Զ�̷�֧�����ӹ�ϵû�д�����������git branch --set-upstream-to <branch-name> origin/<branch-name>��
+git pull失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接，再pull
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
 
 29.
-    �鿴Զ�̿���Ϣ��ʹ��git remote -v��
-    �����½��ķ�֧��������͵�Զ�̣��������˾��ǲ��ɼ��ģ�
-    �ӱ������ͷ�֧��ʹ��git push origin branch-name���������ʧ�ܣ�����git pullץȡԶ�̵����ύ��
-    �ڱ��ش�����Զ�̷�֧��Ӧ�ķ�֧��ʹ��git checkout -b branch-name origin/branch-name�����غ�Զ�̷�֧���������һ�£�
-    �������ط�֧��Զ�̷�֧�Ĺ�����ʹ��git branch --set-upstream branch-name origin/branch-name��
-    ��Զ��ץȡ��֧��ʹ��git pull������г�ͻ��Ҫ�ȴ�����ͻ��
+    查看远程库信息，使用git remote -v；
+    本地新建的分支如果不推送到远程，对其他人就是不可见的；
+    从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+    在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+    建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+    从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
 
 30. git rebase
-    rebase�������԰ѱ���δpush�ķֲ��ύ��ʷ������ֱ�ߣ�
-    rebase��Ŀ����ʹ�������ڲ鿴��ʷ�ύ�ı仯ʱ�����ף���Ϊ�ֲ���ύ��Ҫ�����Աȡ�
+    rebase操作可以把本地未push的分叉提交历史整理成直线；
+    rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 
 31.git fsck --lost-found
-�һ�git add�������Ѿ��������ļ��е����ݣ���֪����ô����Բ��ԣ�������ô�����
+找回git add过但是已经不存在文件中的内容（不知道这么翻译对不对，我是这么理解的
+
+32.
+多人协作的工作模式通常是这样：
+首先，可以试图用git push origin <branch-name>推送自己的修改；
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+如果合并有冲突，则解决冲突，并在本地提交；
+没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+
+查看远程库信息，使用git remote -v；
+本地新建的分支如果不推送到远程，对其他人就是不可见的；
+从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
